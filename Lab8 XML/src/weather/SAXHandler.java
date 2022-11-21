@@ -1,14 +1,11 @@
 package weather;
 
 import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-import weather.CurrentWeather;
 
 import java.text.ParseException;
-import java.util.Objects;
 
-public class CurrentWeatherHandler extends DefaultHandler {
+public class SAXHandler extends DefaultHandler {
     private static final String CITY = "city";
     private static final String COORD = "coord";
     private static final String COUNTRY = "country";
@@ -132,7 +129,6 @@ public class CurrentWeatherHandler extends DefaultHandler {
                 weather.precipitation = new Precipitation();
                 String mode = attributes.getValue("mode");
                 weather.precipitation.setMode(mode);
-//                if (Objects.equals(mode, "yes"))
                 weather.precipitation.setValue(attributes.getValue("value"));
                 weather.precipitation.setUnit(attributes.getValue("unit"));
                 break;
@@ -156,12 +152,8 @@ public class CurrentWeatherHandler extends DefaultHandler {
     @Override
     public void endElement(String uri, String localName, String qName) {
         switch (qName) {
-            case COUNTRY:
-                weather.city.setCountry(elementValue.toString());
-                break;
-            case TIMEZONE:
-                weather.city.setTimeZone(new TimeZone(elementValue.toString()));
-                break;
+            case COUNTRY -> weather.city.setCountry(elementValue.toString());
+            case TIMEZONE -> weather.city.setTimeZone(new TimeZone(elementValue.toString()));
         }
     }
 

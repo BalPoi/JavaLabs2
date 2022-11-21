@@ -1,4 +1,4 @@
-import weather.CurrentWeatherHandler;
+import weather.SAXHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import weather.Constants;
@@ -13,7 +13,7 @@ public class RunnerSAX {
     public static void main(String[] args) {
         SAXParserFactory factory = SAXParserFactory.newInstance();
         factory.setNamespaceAware(true);
-        CurrentWeatherHandler handler = new CurrentWeatherHandler();
+        SAXHandler handler = new SAXHandler();
         try {
             SAXParser parser = factory.newSAXParser();
             parser.parse(new InputSource(new URL(Constants.URL).openStream()), handler);
