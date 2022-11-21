@@ -1,4 +1,4 @@
-package weather.wind;
+package weather;
 
 public class Direction {
     int value;

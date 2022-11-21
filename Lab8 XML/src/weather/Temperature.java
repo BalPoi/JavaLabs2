@@ -1,4 +1,4 @@
-package weather.air;
+package weather;
 
 public class Temperature {
     private float value, min, max;

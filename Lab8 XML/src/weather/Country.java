@@ -1,4 +1,4 @@
-package weather.city;
+package weather;
 
 public class Country {
     String countryCode;

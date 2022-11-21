@@ -1,12 +1,12 @@
-package weather.city;
+package weather;
 
 public class City {
     private long id;
     private String name;
-    private Coorditates cords;
+    Coorditates cords;
     private String country;
-    private TimeZone timeZone;
-    private Sun sun;
+    TimeZone timeZone;
+    Sun sun;
 
     public City() {
     }
@@ -35,6 +35,10 @@ public class City {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public void setId(String id) {
+        this.id = Long.parseLong(id);
     }
 
     public String getName() {

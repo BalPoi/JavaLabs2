@@ -1,4 +1,4 @@
-package weather.city;
+package weather;
 
 public class TimeZone {
     int shiftFromUTC;       // Shift in seconds from UTC

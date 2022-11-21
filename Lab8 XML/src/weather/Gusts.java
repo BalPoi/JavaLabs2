@@ -1,24 +1,21 @@
-package weather.wind;
+package weather;
 
 public class Gusts {
     float value;
-    String unit;
 
     public Gusts() {
     }
 
-    public Gusts(float value, String unit) {
+    public Gusts(float value) {
         this.value = value;
-        this.unit = unit;
     }
 
-    public Gusts(String value, String unit) {
+    public Gusts(String value) {
         try {
             this.value = Float.parseFloat(value);
         } catch (Exception e) {
             this.value = 0;
         }
-        this.unit = unit;
     }
 
     public float getValue() {
@@ -29,19 +26,10 @@ public class Gusts {
         this.value = value;
     }
 
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
-    }
-
     @Override
     public String toString() {
         return "Gusts{" +
                 "value=" + value +
-                ", unit='" + unit + '\'' +
                 '}';
     }
 }

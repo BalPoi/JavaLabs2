@@ -1,23 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <current>
     <city id="2643743" name="London">
-        <coord lon="-0.1257" lat="51.5085"></coord>
+        <coord lon="-0.1257" lat="51.5085"/>
         <country>GB</country>
         <timezone>0</timezone>
-        <sun rise="2022-11-10T07:09:37" set="2022-11-10T16:19:18"></sun>
+        <sun rise="2022-11-21T07:28:29" set="2022-11-21T16:04:31"/>
     </city>
-    <temperature value="286.18" min="285.29" max="287.04" unit="kelvin"></temperature>
-    <feels_like value="285.76" unit="kelvin"></feels_like>
-    <humidity value="85" unit="%"></humidity>
-    <pressure value="1018" unit="hPa"></pressure>
+    <temperature value="280.97" min="280.07" max="282.01" unit="kelvin"/>
+    <feels_like value="277.07" unit="kelvin"/>
+    <humidity value="90" unit="%"/>
+    <pressure value="986" unit="hPa"/>
     <wind>
-        <speed value="5.14" unit="m/s" name="Gentle Breeze"></speed>
-        <gusts></gusts>
-        <direction value="230" code="SW" name="Southwest"></direction>
+        <speed value="7.72" unit="m/s" name="Moderate breeze"/>
+        <gusts value="12.86"/>
+        <direction value="140" code="SE" name="SouthEast"/>
     </wind>
-    <clouds value="100" name="overcast clouds"></clouds>
-    <visibility value="10000"></visibility>
-    <precipitation mode="no"></precipitation>
-    <weather number="804" value="overcast clouds" icon="04d"></weather>
-    <lastupdate value="2022-11-10T09:20:40"></lastupdate>
+    <clouds value="75" name="broken clouds"/>
+    <visibility value="10000"/>
+    <precipitation mode="no"/>
+    <weather number="803" value="broken clouds" icon="04d"/>
+    <lastupdate value="2022-11-21T14:30:08"/>
 </current>

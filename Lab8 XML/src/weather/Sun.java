@@ -1,4 +1,4 @@
-package weather.city;
+package weather;
 
 import java.sql.Time;
 import java.text.ParseException;
@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Sun {
-    Date riseTime, setTime;
+    private Date riseTime, setTime;
 
     public Sun() {
     }
@@ -25,6 +25,22 @@ public class Sun {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public Date getRiseTime() {
+        return riseTime;
+    }
+
+    public void setRiseTime(Date riseTime) {
+        this.riseTime = riseTime;
+    }
+
+    public Date getSetTime() {
+        return setTime;
+    }
+
+    public void setSetTime(Date setTime) {
+        this.setTime = setTime;
     }
 
     @Override

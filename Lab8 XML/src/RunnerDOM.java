@@ -1,17 +1,17 @@
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 import weather.*;
-import weather.air.Humidity;
-import weather.air.Pressure;
-import weather.air.Temperature;
-import weather.city.City;
-import weather.city.Coorditates;
-import weather.city.Sun;
-import weather.city.TimeZone;
-import weather.wind.Direction;
-import weather.wind.Gusts;
-import weather.wind.Speed;
-import weather.wind.Wind;
+import weather.Humidity;
+import weather.Pressure;
+import weather.Temperature;
+import weather.City;
+import weather.Coorditates;
+import weather.Sun;
+import weather.TimeZone;
+import weather.Direction;
+import weather.Gusts;
+import weather.Speed;
+import weather.Wind;
 
 import javax.xml.parsers.*;
 import java.io.*;
@@ -77,8 +77,7 @@ public class RunnerDOM {
                             getAttribute(getNode(root, "speed"), "name")
                     ),
                     new Gusts(
-                            getAttribute(getNode(root, "gusts"), "value"),
-                            getAttribute(getNode(root, "gusts"), "unit")
+                            getAttribute(getNode(root, "gusts"), "value")
                     ),
                     new Direction(
                             getAttribute(getNode(root, "direction"), "value"),

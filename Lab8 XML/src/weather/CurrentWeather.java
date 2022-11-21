@@ -1,11 +1,5 @@
 package weather;
 
-import weather.air.Humidity;
-import weather.air.Pressure;
-import weather.air.Temperature;
-import weather.city.City;
-import weather.wind.Wind;
-
 import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,17 +7,17 @@ import java.util.Date;
 import java.util.Locale;
 
 public class CurrentWeather {
-    private City city;
-    private Temperature temperature;
-    private Temperature feelsLikeTemp;
-    private Humidity humidity;
-    private Pressure pressure;
-    private Wind wind;
-    private Clouds clouds;
-    private Visibility visibility;
-    private Precipitation precipitation;
-    private Weather weather;
-    private Date lastUpdate;
+    City city;
+    Temperature temperature;
+    Temperature feelsLikeTemp;
+    Humidity humidity;
+    Pressure pressure;
+    Wind wind;
+    Clouds clouds;
+    Visibility visibility;
+    Precipitation precipitation;
+    Weather weather;
+    Date lastUpdate;
 
     public CurrentWeather() {
     }

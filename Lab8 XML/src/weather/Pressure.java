@@ -1,4 +1,4 @@
-package weather.air;
+package weather;
 
 public class Pressure {
     private int value;

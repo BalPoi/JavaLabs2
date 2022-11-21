@@ -1,5 +1,7 @@
 package weather;
 
+import java.text.ParseException;
+
 public class Precipitation {
     private float value;        // weather.Precipitation, mm
     private String mode;        // Possible values are "no", name of weather phenomena as 'rain', 'snow'
@@ -30,6 +32,14 @@ public class Precipitation {
 
     public void setValue(float value) {
         this.value = value;
+    }
+
+    public void setValue(String value) {
+        try {
+            this.value = Float.parseFloat(value);
+        } catch(Exception e) {
+            this.value = 0;
+        }
     }
 
     public String getMode() {
