@@ -9,7 +9,7 @@ public class Constants {
               name varchar(255) NOT NULL,
               PRIMARY KEY (id),
               FOREIGN KEY (parent_directory) REFERENCES directories (id)
-              ON DELETE restrict
+              ON DELETE CASCADE
             );
             """;
     public static final String CREATE_FILES_TABLE = """
@@ -20,7 +20,7 @@ public class Constants {
               size bigint NOT NULL,
               PRIMARY KEY (id),
               FOREIGN KEY (parent_directory) REFERENCES directories (id)
-              ON DELETE restrict
+              ON DELETE CASCADE
             );
             """;
 
@@ -47,35 +47,11 @@ public class Constants {
             INSERT INTO files (parent_directory, name, size) VALUES (6, 'BalJavaLab4', 64000);
             """;
 
-    /**
-     *Определить полный путь заданного файла (каталога).
-     */
-    public static final String FIND_ABSOLUTE_PATH = """
-            """;
-    /**
-     * Подсчитать количество файлов в заданном каталоге, включая вложенные файлы и каталоги.
-     */
-    public static final String COUNT_FILES_AND_CATALOGS = """
-            """;
-    /**
-     * Подсчитать место, занимаемое на диске содержимым заданного каталога.
-     */
-    public static final String COUNT_SIZE_OF_CATALOG = """
-            """;
+
     /**
      * Найти в базе файлы по заданной маске с выдачей полного пути.
      */
     public static final String FIND_FILES_REGEX = """
-            """;
-    /**
-     * Переместить файлы и подкаталоги из одного каталога в другой.
-     */
-    public static final String MOVE_CATALOG = """
-            """;
-    /**
-     * Удалить файлы и каталоги заданного каталога.
-     */
-    public static final String REMOVE_CATALOG = """
             """;
 
 }

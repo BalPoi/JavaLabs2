@@ -16,6 +16,11 @@ public class Directory {
         this.name = name;
     }
 
+    public Directory(long parentId, String name) {
+        this.parentId = parentId;
+        this.name = name;
+    }
+
     public long getId() {
         return id;
     }

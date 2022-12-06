@@ -142,4 +142,31 @@ public class DBGetter {
         }
         return counter;
     }
+
+    public int deleteDirectory(long id) throws SQLException {
+        try (Statement statement = conn.createStatement()) {
+            return statement.executeUpdate("DELETE FROM directories WHERE id = %d".formatted(id));
+        }
+    }
+
+    public int moveDirectory(long dirId, long targetDirId) throws SQLException {
+        if (dirId == 1) throw new RuntimeException("Attempting to move the root.");
+        Directory target = getDirectory(targetDirId);
+        try (Statement statement = conn.createStatement()) {
+            return statement.executeUpdate("UPDATE directories SET parent_directory=%d WHERE id=%d".formatted(target.getId(), dirId));
+        }
+    }
+
+    public ArrayList<String> getFilesAbsolutePath(String regex) throws SQLException {
+        var paths = new ArrayList<String>();
+        try (PreparedStatement pr = conn.prepareStatement("SELECT * FROM files WHERE name ~ ?")) {
+            pr.setString(1, regex);
+            ResultSet rs = pr.executeQuery();
+            while (rs.next()) {
+                paths.add(getAbsolutePathFile(rs.getLong("id")));
+            }
+            return paths;
+        }
+    }
+
 }

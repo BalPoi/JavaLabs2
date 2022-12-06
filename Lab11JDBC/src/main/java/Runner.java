@@ -1,6 +1,4 @@
-import by.gsu.bal.Constants;
-import by.gsu.bal.DBGetter;
-import by.gsu.bal.PoolConnection;
+import by.gsu.bal.*;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -24,7 +22,7 @@ public class Runner {
         var password = rb.getString("db.password");
 
         System.out.println("=========================================================================================");
-        System.out.printf("Trying to connect to the database(%s) as %s@%s...\t", url, user, password);
+        System.out.printf("Trying to connect to the database(%s) as %s@%s...\n", url, user, password);
         PoolConnection.init(url, user, password);
 
         try(Connection conn = PoolConnection.getConnection()) {
@@ -56,12 +54,34 @@ public class Runner {
             System.out.println(dbg.getAbsolutePathFile(12));
             System.out.println(dbg.getAbsolutePathDirectory(6));
 
-            System.out.println("[2] Count files and directories:");
+            System.out.println("[2] Count files and directories: '/'");
             System.out.println(dbg.countObjects(1));
 
-            System.out.println("[3] Count size of directory:");
+            System.out.println("[3] Count size of directory: '/'");
             long dirSize = dbg.countDirectorySize(1);
             System.out.printf("%d bits or %d Bytes or %d KB\n", dirSize, dirSize / 8, dirSize / 8 / 1024);
+
+            System.out.println("[4] Delete directory: 'games':");
+            System.out.printf("%s rows updated\n", dbg.deleteDirectory(5));
+
+            System.out.println("[5] Move directory: 'documents':");
+            System.out.printf("%s rows updated\n", dbg.moveDirectory(6, 1));
+
+            System.out.println("[6] RegEx Files: 'Bal.':");
+            for (String path : dbg.getFilesAbsolutePath("Bal.")) {
+                System.out.println(path);
+            }
+
+            System.out.println("----CRUD----");
+            var dbs = new DBSetter(conn);
+
+            System.out.println("[7] Insert new File:");
+            File newFile = new File(1, "NewFile", 0);
+            System.out.printf("%s rows added\n", dbs.insertFile(newFile));
+
+            System.out.println("[8] Insert new Directory:");
+            Directory newDir = new Directory(1, "NewDir");
+            System.out.printf("%s rows added\n", dbs.insertDirectory(newDir));
 
             System.out.println("=========================================================================================");
         }

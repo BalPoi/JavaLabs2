@@ -13,6 +13,12 @@ public class File {
         this.size = size;
     }
 
+    public File(long parentId, String name, long size) {
+        this.parentId = parentId;
+        this.name = name;
+        this.size = size;
+    }
+
     public long getId() {
         return id;
     }
@@ -43,5 +49,15 @@ public class File {
 
     public void setSize(long size) {
         this.size = size;
+    }
+
+    @Override
+    public String toString() {
+        return "File{" +
+                "id=" + id +
+                ", parentId=" + parentId +
+                ", name='" + name + '\'' +
+                ", size=" + size +
+                '}';
     }
 }
