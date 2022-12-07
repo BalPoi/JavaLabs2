@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<TabPane fx:id="servicesTabs" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="by.gsu.bal.finaltask.MainController">
+  <tabs>
+    <Tab fx:id="electricityTab" onCloseRequest="#onElectricityTabCloseRequest" onClosed="#onElectricityTabClosed" onSelectionChanged="#onElectricityTabSelected" text="Электричество">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <children>
+            <AnchorPane prefHeight="371.0" prefWidth="600.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <children>
+                <TableView fx:id="elecTable" prefHeight="326.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <columns>
+                    <TableColumn fx:id="elecDateColumn" prefWidth="131.0" text="Дата" />
+                    <TableColumn fx:id="elecValueColumn" prefWidth="150.0" text="Показание счётчика" />
+                    <TableColumn fx:id="elecCostColumn" prefWidth="99.0" text="Сумма" />
+                  </columns>
+                </TableView>
+              </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="40.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+              <children>
+                <HBox prefHeight="40.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <children>
+                    <TextField fx:id="elecInputField" onAction="#onInputButtonClick" promptText="Значение счётчика" />
+                    <Button fx:id="elecInputButton" mnemonicParsing="false" onAction="#onInputButtonClick" text="Подсчитать" />
+                  </children>
+                  <padding>
+                    <Insets left="7.5" right="7.5" top="7.5" />
+                  </padding>
+                </HBox>
+              </children>
+            </AnchorPane>
+          </children>
+        </AnchorPane>
+      </content>
+    </Tab>
+    <Tab fx:id="coldWaterTab" onCloseRequest="#onColdWaterTabCloseRequest" onClosed="#onColdWaterTabClosed" onSelectionChanged="#onColdWaterSelected" text="Вода Х">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <children>
+            <AnchorPane prefHeight="371.0" prefWidth="600.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <children>
+                <TableView fx:id="cWaterTable" prefHeight="326.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <columns>
+                    <TableColumn fx:id="cWaterDateColumn" prefWidth="131.0" text="Дата" />
+                    <TableColumn fx:id="cWaterValueColumn" prefWidth="150.0" text="Показание счётчика" />
+                    <TableColumn fx:id="cWaterCostColumn" prefWidth="99.0" text="Сумма" />
+                  </columns>
+                </TableView>
+              </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="40.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+              <children>
+                <HBox prefHeight="40.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <children>
+                    <TextField fx:id="hWaterInputField" onAction="#onInputButtonClick" promptText="Значение счётчика" />
+                    <Button fx:id="hWaterInputButton" mnemonicParsing="false" onAction="#onInputButtonClick" text="Подсчитать" />
+                  </children>
+                  <padding>
+                    <Insets left="7.5" right="7.5" top="7.5" />
+                  </padding>
+                </HBox>
+              </children>
+            </AnchorPane>
+          </children>
+        </AnchorPane>
+      </content>
+    </Tab>
+    <Tab fx:id="hotWaterTab" onCloseRequest="#onHotWaterTabCloseRequest" onClosed="#onHotWaterTabClosed" onSelectionChanged="#onHotWaterTabSelected" text="Вода Г">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <children>
+            <AnchorPane prefHeight="371.0" prefWidth="600.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <children>
+                <TableView fx:id="hWaterTable" prefHeight="326.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <columns>
+                    <TableColumn fx:id="hWaterDateColumn" prefWidth="131.0" text="Дата" />
+                    <TableColumn fx:id="hWaterValueColumn" prefWidth="150.0" text="Показание счётчика" />
+                    <TableColumn fx:id="hWaterCostColumn" prefWidth="99.0" text="Сумма" />
+                  </columns>
+                </TableView>
+              </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="40.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+              <children>
+                <HBox prefHeight="40.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <children>
+                    <TextField fx:id="cWaterInputField" onAction="#onInputButtonClick" promptText="Значение счётчика" />
+                    <Button fx:id="cWaterInputButton" mnemonicParsing="false" onAction="#onInputButtonClick" text="Подсчитать" />
+                  </children>
+                  <padding>
+                    <Insets left="7.5" right="7.5" top="7.5" />
+                  </padding>
+                </HBox>
+              </children>
+            </AnchorPane>
+          </children>
+        </AnchorPane>
+      </content>
+    </Tab>
+    <Tab fx:id="gasTab" onCloseRequest="#onGasTabCloseRequest" onClosed="#onGasTabClosed" onSelectionChanged="#onGasTabSelected" text="Газ">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <children>
+            <AnchorPane prefHeight="371.0" prefWidth="600.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <children>
+                <TableView fx:id="gasTable" prefHeight="326.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <columns>
+                    <TableColumn fx:id="gasDateColumn" prefWidth="131.0" text="Дата" />
+                    <TableColumn fx:id="gasValueColumn" prefWidth="150.0" text="Показание счётчика" />
+                    <TableColumn fx:id="gasCostColumn" prefWidth="99.0" text="Сумма" />
+                  </columns>
+                </TableView>
+              </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="40.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+              <children>
+                <HBox prefHeight="40.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <children>
+                    <TextField fx:id="gasInputField" onAction="#onInputButtonClick" promptText="Значение счётчика" />
+                    <Button fx:id="gasInputButton" mnemonicParsing="false" onAction="#onInputButtonClick" text="Подсчитать" />
+                  </children>
+                  <padding>
+                    <Insets left="7.5" right="7.5" top="7.5" />
+                  </padding>
+                </HBox>
+              </children>
+            </AnchorPane>
+          </children>
+        </AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>

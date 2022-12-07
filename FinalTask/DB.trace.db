@@ -1,0 +1,302 @@
+2022-12-07 16:38:08 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]" [50000-214]
+	at com.h2database@2.1.214/org.h2.message.DbException.get(DbException.java:212)
+	at com.h2database@2.1.214/org.h2.message.DbException.convert(DbException.java:395)
+	at com.h2database@2.1.214/org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at com.h2database@2.1.214/org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at com.h2database@2.1.214/org.h2.engine.Database.<init>(Database.java:324)
+	at com.h2database@2.1.214/org.h2.engine.Engine.openSession(Engine.java:92)
+	at com.h2database@2.1.214/org.h2.engine.Engine.openSession(Engine.java:222)
+	at com.h2database@2.1.214/org.h2.engine.Engine.createSession(Engine.java:201)
+	at com.h2database@2.1.214/org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at com.h2database@2.1.214/org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcDataSource.getPooledConnection(JdbcDataSource.java:352)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcConnectionPool.getConnectionNow(JdbcConnectionPool.java:233)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcConnectionPool.getConnection(JdbcConnectionPool.java:198)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.PoolConnection.getConnection(PoolConnection.java:18)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.DB.init(DB.java:34)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.Application.main(Application.java:23)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.launchApplicationWithArgs(LauncherImpl.java:465)
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.launchApplication(LauncherImpl.java:364)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/sun.launcher.LauncherHelper$FXHelper.main(LauncherHelper.java:1071)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]" [50000-214]
+	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 32 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]
+	at com.h2database@2.1.214/org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at com.h2database@2.1.214/org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at com.h2database@2.1.214/org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 26 more
+2022-12-07 16:38:51 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]" [50000-214]
+	at com.h2database@2.1.214/org.h2.message.DbException.get(DbException.java:212)
+	at com.h2database@2.1.214/org.h2.message.DbException.convert(DbException.java:395)
+	at com.h2database@2.1.214/org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at com.h2database@2.1.214/org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at com.h2database@2.1.214/org.h2.engine.Database.<init>(Database.java:324)
+	at com.h2database@2.1.214/org.h2.engine.Engine.openSession(Engine.java:92)
+	at com.h2database@2.1.214/org.h2.engine.Engine.openSession(Engine.java:222)
+	at com.h2database@2.1.214/org.h2.engine.Engine.createSession(Engine.java:201)
+	at com.h2database@2.1.214/org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at com.h2database@2.1.214/org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcDataSource.getPooledConnection(JdbcDataSource.java:352)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcConnectionPool.getConnectionNow(JdbcConnectionPool.java:233)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcConnectionPool.getConnection(JdbcConnectionPool.java:198)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.PoolConnection.getConnection(PoolConnection.java:18)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.DB.init(DB.java:34)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.Application.main(Application.java:23)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.launchApplicationWithArgs(LauncherImpl.java:465)
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.launchApplication(LauncherImpl.java:364)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/sun.launcher.LauncherHelper$FXHelper.main(LauncherHelper.java:1071)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]" [50000-214]
+	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 32 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]
+	at com.h2database@2.1.214/org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at com.h2database@2.1.214/org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at com.h2database@2.1.214/org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 26 more
+2022-12-07 16:40:25 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]" [50000-214]
+	at com.h2database@2.1.214/org.h2.message.DbException.get(DbException.java:212)
+	at com.h2database@2.1.214/org.h2.message.DbException.convert(DbException.java:395)
+	at com.h2database@2.1.214/org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at com.h2database@2.1.214/org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at com.h2database@2.1.214/org.h2.engine.Database.<init>(Database.java:324)
+	at com.h2database@2.1.214/org.h2.engine.Engine.openSession(Engine.java:92)
+	at com.h2database@2.1.214/org.h2.engine.Engine.openSession(Engine.java:222)
+	at com.h2database@2.1.214/org.h2.engine.Engine.createSession(Engine.java:201)
+	at com.h2database@2.1.214/org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at com.h2database@2.1.214/org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcDataSource.getPooledConnection(JdbcDataSource.java:352)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcConnectionPool.getConnectionNow(JdbcConnectionPool.java:233)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcConnectionPool.getConnection(JdbcConnectionPool.java:198)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.PoolConnection.getConnection(PoolConnection.java:18)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.DB.init(DB.java:34)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.Application.main(Application.java:23)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.launchApplicationWithArgs(LauncherImpl.java:465)
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.launchApplication(LauncherImpl.java:364)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/sun.launcher.LauncherHelper$FXHelper.main(LauncherHelper.java:1071)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]" [50000-214]
+	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 32 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]
+	at com.h2database@2.1.214/org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at com.h2database@2.1.214/org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at com.h2database@2.1.214/org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 26 more
+2022-12-07 16:53:57 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]" [50000-214]
+	at com.h2database@2.1.214/org.h2.message.DbException.get(DbException.java:212)
+	at com.h2database@2.1.214/org.h2.message.DbException.convert(DbException.java:395)
+	at com.h2database@2.1.214/org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at com.h2database@2.1.214/org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at com.h2database@2.1.214/org.h2.engine.Database.<init>(Database.java:324)
+	at com.h2database@2.1.214/org.h2.engine.Engine.openSession(Engine.java:92)
+	at com.h2database@2.1.214/org.h2.engine.Engine.openSession(Engine.java:222)
+	at com.h2database@2.1.214/org.h2.engine.Engine.createSession(Engine.java:201)
+	at com.h2database@2.1.214/org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at com.h2database@2.1.214/org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcDataSource.getPooledConnection(JdbcDataSource.java:352)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcConnectionPool.getConnectionNow(JdbcConnectionPool.java:233)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcConnectionPool.getConnection(JdbcConnectionPool.java:198)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.PoolConnection.getConnection(PoolConnection.java:18)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.DB.init(DB.java:34)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.Application.main(Application.java:23)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.launchApplicationWithArgs(LauncherImpl.java:465)
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.launchApplication(LauncherImpl.java:364)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/sun.launcher.LauncherHelper$FXHelper.main(LauncherHelper.java:1071)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]" [50000-214]
+	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 32 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]
+	at com.h2database@2.1.214/org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at com.h2database@2.1.214/org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at com.h2database@2.1.214/org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 26 more
+2022-12-07 16:55:02 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]" [50000-214]
+	at com.h2database@2.1.214/org.h2.message.DbException.get(DbException.java:212)
+	at com.h2database@2.1.214/org.h2.message.DbException.convert(DbException.java:395)
+	at com.h2database@2.1.214/org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at com.h2database@2.1.214/org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at com.h2database@2.1.214/org.h2.engine.Database.<init>(Database.java:324)
+	at com.h2database@2.1.214/org.h2.engine.Engine.openSession(Engine.java:92)
+	at com.h2database@2.1.214/org.h2.engine.Engine.openSession(Engine.java:222)
+	at com.h2database@2.1.214/org.h2.engine.Engine.createSession(Engine.java:201)
+	at com.h2database@2.1.214/org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at com.h2database@2.1.214/org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcDataSource.getPooledConnection(JdbcDataSource.java:352)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcConnectionPool.getConnectionNow(JdbcConnectionPool.java:233)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcConnectionPool.getConnection(JdbcConnectionPool.java:198)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.PoolConnection.getConnection(PoolConnection.java:18)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.DB.init(DB.java:34)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.Application.main(Application.java:23)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.launchApplicationWithArgs(LauncherImpl.java:465)
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.launchApplication(LauncherImpl.java:364)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/sun.launcher.LauncherHelper$FXHelper.main(LauncherHelper.java:1071)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]" [50000-214]
+	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 32 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]
+	at com.h2database@2.1.214/org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at com.h2database@2.1.214/org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at com.h2database@2.1.214/org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 26 more
+2022-12-07 16:55:56 database: flush
+org.h2.message.DbException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]" [50000-214]
+	at com.h2database@2.1.214/org.h2.message.DbException.get(DbException.java:212)
+	at com.h2database@2.1.214/org.h2.message.DbException.convert(DbException.java:395)
+	at com.h2database@2.1.214/org.h2.mvstore.db.Store.lambda$new$0(Store.java:125)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.handleException(MVStore.java:3318)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.panic(MVStore.java:593)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.<init>(MVStore.java:469)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore$Builder.open(MVStore.java:4082)
+	at com.h2database@2.1.214/org.h2.mvstore.db.Store.<init>(Store.java:136)
+	at com.h2database@2.1.214/org.h2.engine.Database.<init>(Database.java:324)
+	at com.h2database@2.1.214/org.h2.engine.Engine.openSession(Engine.java:92)
+	at com.h2database@2.1.214/org.h2.engine.Engine.openSession(Engine.java:222)
+	at com.h2database@2.1.214/org.h2.engine.Engine.createSession(Engine.java:201)
+	at com.h2database@2.1.214/org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:338)
+	at com.h2database@2.1.214/org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:122)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcDataSource.getXAConnection(JdbcDataSource.java:322)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcDataSource.getPooledConnection(JdbcDataSource.java:352)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcConnectionPool.getConnectionNow(JdbcConnectionPool.java:233)
+	at com.h2database@2.1.214/org.h2.jdbcx.JdbcConnectionPool.getConnection(JdbcConnectionPool.java:198)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.PoolConnection.getConnection(PoolConnection.java:18)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.DB.init(DB.java:34)
+	at by.gsu.bal.finaltask@1.0-SNAPSHOT/by.gsu.bal.finaltask.Application.main(Application.java:23)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.launchApplicationWithArgs(LauncherImpl.java:465)
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.launchApplication(LauncherImpl.java:364)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/sun.launcher.LauncherHelper$FXHelper.main(LauncherHelper.java:1071)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Внутренняя ошибка: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]" [50000-214]
+	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:554)
+	at com.h2database@2.1.214/org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	... 32 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/MEGA/WORK/Uni4-1/Java/FinalTask/DB.mv.db [2.1.214/7]
+	at com.h2database@2.1.214/org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:1004)
+	at com.h2database@2.1.214/org.h2.mvstore.FileStore.open(FileStore.java:178)
+	at com.h2database@2.1.214/org.h2.mvstore.FileStore.open(FileStore.java:128)
+	at com.h2database@2.1.214/org.h2.mvstore.MVStore.<init>(MVStore.java:452)
+	... 26 more
+2022-12-07 16:56:21 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE IF NOT EXISTS electricity (\000a  id bigint NOT NULL AUTO_INCREMENT,\000a  date date NOT NULL,\000a  [*]value float NOT NULL,\000a  unitsId int NOT NULL\000a  PRIMARY KEY (id),\000a  FOREIGN KEY (unitsId) REFERENCES units (id)\000a  ON DELETE CASCADE\000a);\000a"; ожидалось "identifier"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS electricity (\000a  id bigint NOT NULL AUTO_INCREMENT,\000a  date date NOT NULL,\000a  [*]value float NOT NULL,\000a  unitsId int NOT NULL\000a  PRIMARY KEY (id),\000a  FOREIGN KEY (unitsId) REFERENCES units (id)\000a  ON DELETE CASCADE\000a);\000a"; expected "identifier"; SQL statement:
+CREATE TABLE IF NOT EXISTS electricity (
+  id bigint NOT NULL AUTO_INCREMENT,
+  date date NOT NULL,
+  value float NOT NULL,
+  unitsId int NOT NULL
+  PRIMARY KEY (id),
+  FOREIGN KEY (unitsId) REFERENCES units (id)
+  ON DELETE CASCADE
+);
+ [42001-214]
+2022-12-07 16:58:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Синтаксическая ошибка в выражении SQL "CREATE TABLE IF NOT EXISTS electricity (\000a  id bigint NOT NULL AUTO_INCREMENT,\000a  date date NOT NULL,\000a  meter_value float NOT NULL,\000a  unitsId int NOT NULL\000a  PRIMARY KEY [*](id),\000a  FOREIGN KEY (unitsId) REFERENCES units (id)\000a  ON DELETE CASCADE\000a);\000a"; ожидалось "HASH, CONSTRAINT, COMMENT, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"
+Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS electricity (\000a  id bigint NOT NULL AUTO_INCREMENT,\000a  date date NOT NULL,\000a  meter_value float NOT NULL,\000a  unitsId int NOT NULL\000a  PRIMARY KEY [*](id),\000a  FOREIGN KEY (unitsId) REFERENCES units (id)\000a  ON DELETE CASCADE\000a);\000a"; expected "HASH, CONSTRAINT, COMMENT, UNIQUE, NOT NULL, NULL, CHECK, REFERENCES, AUTO_INCREMENT, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS electricity (
+  id bigint NOT NULL AUTO_INCREMENT,
+  date date NOT NULL,
+  meter_value float NOT NULL,
+  unitsId int NOT NULL
+  PRIMARY KEY (id),
+  FOREIGN KEY (unitsId) REFERENCES units (id)
+  ON DELETE CASCADE
+);
+ [42001-214]

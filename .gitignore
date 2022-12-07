@@ -146,7 +146,7 @@ replay_pid*
 */target/
 
 ### Gradle ###
-**.gradle
+**/.gradle
 **/build/
 !src/**/build/
 
