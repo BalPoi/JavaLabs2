@@ -7,6 +7,11 @@ public class DBGetter {
 
   private final Connection conn;
 
+
+  public DBGetter() {
+    conn = null;
+  }
+
   public DBGetter(Connection connection) {
     this.conn = connection;
   }

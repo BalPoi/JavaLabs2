@@ -3,10 +3,12 @@ package by.gsu.bal.finaltask;
 import javafx.collections.FXCollections;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Date;
@@ -122,10 +124,7 @@ public class MainController {
       gasValueColumn.setCellValueFactory(new PropertyValueFactory<PayRecord, Float>("value"));
       gasCostColumn.setCellValueFactory(new PropertyValueFactory<PayRecord, Float>("cost"));
 
-      refillTable(dbg, elecTable, "electricity");
-      refillTable(dbg, hWaterTable, "hot_water");
-      refillTable(dbg, cWaterTable, "cold_water");
-      refillTable(dbg, gasTable, "gas");
+      refillAllTables(dbg);
 
     }
   }
@@ -134,6 +133,13 @@ public class MainController {
     tv.setItems(FXCollections.observableArrayList());
     tv.setItems(FXCollections.observableArrayList(
         dbg.getRecords(serviceName)));
+  }
+
+  public void refillAllTables(DBGetter dbg) throws SQLException {
+    refillTable(dbg, elecTable, "electricity");
+    refillTable(dbg, hWaterTable, "hot_water");
+    refillTable(dbg, cWaterTable, "cold_water");
+    refillTable(dbg, gasTable, "gas");
   }
 
 
@@ -197,31 +203,58 @@ public class MainController {
   }
 
   @FXML
-  void onInputButtonClick(Event event) {
+  void onInputButtonClick(Event event) throws SQLException {
     Node target = (Node) event.getTarget();
     String id = target.getId();
 
     if (Objects.equals(id, "elecInputButton") || Objects.equals(id, "elecInputField")) {
-      float value;
-      try {
-        value = Float.parseFloat(elecInputField.getCharacters().toString().replace(',','.'));
-      } catch(NumberFormatException e) {
-        elecInputField.clear();
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Ошибка ввода");
-        alert.setContentText("Введённая строка не может быть преобразована в число");
-        alert.showAndWait();
-        return;
-      }
-
-      //TODO:Input value handler. Insert to the BD
-      System.out.println(value);
-
-
-
-
+      inputHandler(elecInputField, "electricity");
+    } else if (Objects.equals(id, "hWaterInputButton") || Objects.equals(id, "hWaterInputField")) {
+      inputHandler(hWaterInputField, "hot_water");
+    } else if (Objects.equals(id, "cWaterInputButton") || Objects.equals(id, "cWaterInputField")) {
+      inputHandler(cWaterInputField, "cold_water");
+    } else if (Objects.equals(id, "gasInputButton") || Objects.equals(id, "gasInputField")) {
+      inputHandler(gasInputField, "gas");
     }
 
+  }
+
+  void inputHandler(TextField tf, String serviceName) throws SQLException {
+    float value;
+    try {
+      value = Float.parseFloat(tf.getCharacters().toString().replace(',','.'));
+    } catch(NumberFormatException e) {
+      tf.clear();
+      Alert alert = new Alert(Alert.AlertType.ERROR);
+      alert.setTitle("Ошибка ввода");
+      alert.setContentText("Введённая строка не может быть преобразована в число");
+      alert.showAndWait();
+      return;
+    }
+
+    FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("modalPay.fxml"));
+    DialogPane dialogPane = null;
+    try {
+      //FIXME: чёта не лоудица. Хотя работало.
+      dialogPane = fxmlLoader.load();
+    } catch (IOException e) {
+      throw new RuntimeException(e);
+    }
+
+    Dialog<ButtonType> dialog = new Dialog<>();
+    dialog.setDialogPane(dialogPane);
+
+    try(Connection conn = PoolConnection.getConnection()) {
+      DBGetter dbg = new DBGetter(conn);
+
+      ModalPayController.setValue(value);
+      ModalPayController.setLastRecord(dbg.getLastRecord(serviceName));
+
+      dialog.showAndWait();
+    }
+
+
+    System.out.println(dialog.getResult());
   }
 
 }

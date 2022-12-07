@@ -60,10 +60,6 @@ public class DB {
         }
       }
 
-      var a = dbg.getRecords("gas");
-      for (PayRecord record : a)
-        System.out.println(record);
-
     }
   }
 
