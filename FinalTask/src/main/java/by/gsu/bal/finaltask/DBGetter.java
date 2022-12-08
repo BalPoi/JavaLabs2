@@ -5,11 +5,10 @@ import java.util.ArrayList;
 
 public class DBGetter {
 
-  private final Connection conn;
+  private static Connection conn;
 
 
   public DBGetter() {
-    conn = null;
   }
 
   public DBGetter(Connection connection) {
@@ -21,18 +20,20 @@ public class DBGetter {
       return statement.executeQuery("SELECT * FROM units;").next();
     }
   }
+
   public boolean areThereServices() throws SQLException {
     try (Statement statement = conn.createStatement()) {
       return statement.executeQuery("SELECT * FROM services;").next();
     }
   }
+
   public boolean areThereRecords() throws SQLException {
     try (Statement statement = conn.createStatement()) {
       return statement.executeQuery("SELECT * FROM records;").next();
     }
   }
 
-  public float getTariff(String serviceName) throws SQLException {
+  public static float getTariff(String serviceName) throws SQLException {
     try (PreparedStatement ps = conn.prepareStatement("""
         SELECT tariff
         FROM services
@@ -45,10 +46,11 @@ public class DBGetter {
     }
   }
 
-  public float calcCost(String serviceName, float currValue) throws SQLException {
+  static public float calcCost(String serviceName, float currValue) throws SQLException {
     PayRecord lastRecord = getLastRecord(serviceName);
     return (float) (Math.round((currValue - lastRecord.getValue()) * getTariff(serviceName) * 100.0) / 100.0);
   }
+
   public float calcCost(String serviceName, float currValue, long currRecordId) throws SQLException {
     PayRecord lastRecord = getLastRecord(serviceName, currRecordId);
     return (float) (Math.round((currValue - lastRecord.getValue()) * getTariff(serviceName) * 100.0) / 100.0);
@@ -79,7 +81,7 @@ public class DBGetter {
     return records;
   }
 
-  public PayRecord getLastRecord(String serviceName) throws SQLException {
+  public static PayRecord getLastRecord(String serviceName) throws SQLException {
     try (PreparedStatement ps = conn.prepareStatement("""
         SELECT record_id, service_name, records.service_id, pay_date, meter_value, units.unit_name, tariff FROM
         records JOIN services ON records.service_id = services.service_id
@@ -102,6 +104,7 @@ public class DBGetter {
       );
     }
   }
+
   public PayRecord getLastRecord(String serviceName, long currRecordId) throws SQLException {
     try (PreparedStatement ps = conn.prepareStatement("""
         SELECT record_id, service_name, records.service_id, pay_date, meter_value, units.unit_name, tariff FROM
@@ -127,4 +130,20 @@ public class DBGetter {
     }
   }
 
+  public int getServiceId(String serviceName) throws SQLException {
+    try (PreparedStatement ps = conn.prepareStatement("""
+        SELECT records.service_id FROM
+        records INNER JOIN services ON records.service_id = services.service_id
+        WHERE service_name = ?
+        LIMIT 1
+        """)) {
+      ps.setString(1, serviceName);
+      ResultSet rs = ps.executeQuery();
+      if (rs.next())
+        return rs.getInt("service_id");
+
+      return 0;
+    }
+  }
 }
+

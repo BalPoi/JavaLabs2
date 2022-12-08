@@ -63,8 +63,8 @@
               <children>
                 <HBox prefHeight="40.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
-                    <TextField fx:id="hWaterInputField" onAction="#onInputButtonClick" promptText="Значение счётчика" />
-                    <Button fx:id="hWaterInputButton" mnemonicParsing="false" onAction="#onInputButtonClick" text="Подсчитать" />
+                    <TextField fx:id="cWaterInputField" onAction="#onInputButtonClick" promptText="Значение счётчика" />
+                    <Button fx:id="cWaterInputButton" mnemonicParsing="false" onAction="#onInputButtonClick" text="Подсчитать" />
                   </children>
                   <padding>
                     <Insets left="7.5" right="7.5" top="7.5" />
@@ -95,8 +95,8 @@
               <children>
                 <HBox prefHeight="40.0" spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
-                    <TextField fx:id="cWaterInputField" onAction="#onInputButtonClick" promptText="Значение счётчика" />
-                    <Button fx:id="cWaterInputButton" mnemonicParsing="false" onAction="#onInputButtonClick" text="Подсчитать" />
+                    <TextField fx:id="hWaterInputField" onAction="#onInputButtonClick" promptText="Значение счётчика" />
+                    <Button fx:id="hWaterInputButton" mnemonicParsing="false" onAction="#onInputButtonClick" text="Подсчитать" />
                   </children>
                   <padding>
                     <Insets left="7.5" right="7.5" top="7.5" />

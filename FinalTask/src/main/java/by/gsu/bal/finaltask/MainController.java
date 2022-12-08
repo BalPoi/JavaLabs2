@@ -9,10 +9,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.Objects;
+import java.util.Optional;
 
 public class MainController {
   @FXML
@@ -223,38 +225,53 @@ public class MainController {
     float value;
     try {
       value = Float.parseFloat(tf.getCharacters().toString().replace(',','.'));
+      tf.clear();
     } catch(NumberFormatException e) {
       tf.clear();
       Alert alert = new Alert(Alert.AlertType.ERROR);
-      alert.setTitle("Ошибка ввода");
+      alert.setTitle("Ошибка");
+      alert.setHeaderText("Ошибка ввода");
       alert.setContentText("Введённая строка не может быть преобразована в число");
       alert.showAndWait();
       return;
     }
 
-    FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("modalPay.fxml"));
-    DialogPane dialogPane = null;
-    try {
-      //FIXME: чёта не лоудица. Хотя работало.
-      dialogPane = fxmlLoader.load();
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
-
-    Dialog<ButtonType> dialog = new Dialog<>();
-    dialog.setDialogPane(dialogPane);
 
     try(Connection conn = PoolConnection.getConnection()) {
       DBGetter dbg = new DBGetter(conn);
+      DBSetter dbs = new DBSetter(conn);
 
-      ModalPayController.setValue(value);
-      ModalPayController.setLastRecord(dbg.getLastRecord(serviceName));
+      Optional<ButtonType> isConfirmed = showConfirmationDialog(dbg.getLastRecord(serviceName), value);
+      if (isConfirmed.get() == ButtonType.OK) {
+        PayRecord record = new PayRecord();
+        record.setServiceId(dbg.getServiceId(serviceName));
+        record.setPayDate(new Date(System.currentTimeMillis()));
+        record.setValue(value);
+        dbs.insertPayRecord(record);
 
-      dialog.showAndWait();
+        refillAllTables(dbg);
+      }
     }
 
 
-    System.out.println(dialog.getResult());
   }
+
+  private Optional<ButtonType> showConfirmationDialog(PayRecord lastRecord, float newValue) throws SQLException {
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.setTitle("Чек");
+    alert.setHeaderText("К оплате %.2f рублей\nЗа %.4f %s\nС %s".formatted(
+        DBGetter.calcCost(lastRecord.getServiceName(), newValue),
+        newValue - lastRecord.getValue(),
+        lastRecord.getUnit(),
+        lastRecord.getPayDate().toString()
+    ));
+    alert.setContentText("Оплатить?");
+
+    return alert.showAndWait();
+  }
+
+//    textCost.setText(String.valueOf(dbg.calcCost(lastRecord.getServiceName(), value)));
+//    textLastDate.setText(lastRecord.getPayDate().toString());
+//    textValue.setText(String.valueOf(value - lastRecord.getValue()));
 
 }

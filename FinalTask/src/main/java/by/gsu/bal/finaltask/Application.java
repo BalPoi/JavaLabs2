@@ -25,8 +25,6 @@ public class Application extends javafx.application.Application {
       throw new RuntimeException(e);
     }
 
-
-
     launch();
   }
 }
